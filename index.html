@@ -68,13 +68,15 @@
                 document.getElementById("lockdown").style.display = "none";
                 document.getElementById("content").style.display = "block";
                 document.getElementById("overlay").style.display = "none";
+                document.body.style.pointerEvents = "auto"; // Re-enable pointer events
             } else {
                 alert("Incorrect password. Please try again.");
             }
         });
         
-        // Prevent interaction with content until unlocked
+        // Prevent interaction with content and tab bar until unlocked
         document.getElementById("overlay").style.display = "block";
+        document.body.style.pointerEvents = "none";
     </script>
 </body>
 </html>
