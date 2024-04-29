@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iPad Lockdown</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        
+        #lockdown {
+            text-align: center;
+        }
+        
+        #passwordInput {
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        
+        #unlockButton {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        
+        #unlockButton:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div id="lockdown">
+        <h1>iPad Lockdown Mode</h1>
+        <input type="password" id="passwordInput" placeholder="Enter password">
+        <button id="unlockButton">Unlock</button>
+    </div>
+    <script>
+        document.getElementById("unlockButton").addEventListener("click", function() {
+            var password = document.getElementById("passwordInput").value;
+            if (password === "1111") {
+                document.getElementById("lockdown").style.display = "none";
+                // You can add additional functionality here to unlock the iPad
+            } else {
+                alert("Incorrect password. Please try again.");
+            }
+        });
+    </script>
+</body>
+</html>
