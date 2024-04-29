@@ -37,7 +37,14 @@
             background-color: #45a049;
         }
         
-        #content {
+        #overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
             display: none;
         }
     </style>
@@ -48,6 +55,7 @@
         <input type="password" id="passwordInput" placeholder="Enter password">
         <button id="unlockButton">Unlock</button>
     </div>
+    <div id="overlay"></div>
     <div id="content">
         <!-- Content accessible after unlocking -->
         <h1>Welcome to your iPad</h1>
@@ -59,10 +67,14 @@
             if (password === "1111") {
                 document.getElementById("lockdown").style.display = "none";
                 document.getElementById("content").style.display = "block";
+                document.getElementById("overlay").style.display = "none";
             } else {
                 alert("Incorrect password. Please try again.");
             }
         });
+        
+        // Prevent interaction with content until unlocked
+        document.getElementById("overlay").style.display = "block";
     </script>
 </body>
 </html>
