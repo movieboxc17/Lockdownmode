@@ -36,23 +36,29 @@
         #unlockButton:hover {
             background-color: #45a049;
         }
+        
+        #content {
+            display: none;
+        }
     </style>
 </head>
 <body>
     <div id="lockdown">
         <h1>iPad Lockdown Mode</h1>
-        <form id="unlockForm">
-            <input type="password" id="passwordInput" name="password" placeholder="Enter password">
-            <button id="unlockButton" type="submit">Unlock</button>
-        </form>
+        <input type="password" id="passwordInput" placeholder="Enter password">
+        <button id="unlockButton">Unlock</button>
+    </div>
+    <div id="content">
+        <!-- Content accessible after unlocking -->
+        <h1>Welcome to your iPad</h1>
+        <p>You can now use your iPad normally.</p>
     </div>
     <script>
-        document.getElementById("unlockForm").addEventListener("submit", function(event) {
-            event.preventDefault();
+        document.getElementById("unlockButton").addEventListener("click", function() {
             var password = document.getElementById("passwordInput").value;
             if (password === "1111") {
                 document.getElementById("lockdown").style.display = "none";
-                // You can add additional functionality here to unlock the iPad
+                document.getElementById("content").style.display = "block";
             } else {
                 alert("Incorrect password. Please try again.");
             }
