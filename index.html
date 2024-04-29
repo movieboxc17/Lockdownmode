@@ -41,11 +41,14 @@
 <body>
     <div id="lockdown">
         <h1>iPad Lockdown Mode</h1>
-        <input type="password" id="passwordInput" placeholder="Enter password">
-        <button id="unlockButton">Unlock</button>
+        <form id="unlockForm">
+            <input type="password" id="passwordInput" name="password" placeholder="Enter password">
+            <button id="unlockButton" type="submit">Unlock</button>
+        </form>
     </div>
     <script>
-        document.getElementById("unlockButton").addEventListener("click", function() {
+        document.getElementById("unlockForm").addEventListener("submit", function(event) {
+            event.preventDefault();
             var password = document.getElementById("passwordInput").value;
             if (password === "1111") {
                 document.getElementById("lockdown").style.display = "none";
